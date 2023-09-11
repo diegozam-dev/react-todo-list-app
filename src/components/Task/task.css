@@ -1,0 +1,63 @@
+.task {
+  min-height: 2rem;
+  padding: 0.5rem 0;
+  background-color: var(--secondary-c);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & .task__check {
+    width: .8rem;
+    height: .8rem;
+    margin: 0 1rem;
+    cursor: pointer;
+  }
+
+  & .task__check:checked {
+    accent-color: var(--dark-c);
+  }
+
+  & .task__data {
+    width: calc(100% - 6rem);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    overflow-wrap: break-word;
+
+    & p {
+      width: 100%;
+    }
+
+    & .task__name {
+      color: var(--dark-c);
+    }
+
+    & .task__description {
+      font-size: calc(1rem - 0.2rem);
+      padding-top: .2rem;
+      border-top: 1px solid var(--dark-low-c);
+      color: var(--dark-low-c);
+    }
+  }
+
+  & .task__btn-delete {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0 .5rem;
+    background-color: transparent;
+    display: grid;
+    place-items: center;
+
+    & svg {
+      pointer-events: none;
+    }
+
+    &:hover svg {
+      fill: var(--delete-low-c);
+      stroke: var(--delete-low-c);
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { TodoListContext } from '../../context/TodoListContext.jsx';
 import Task from '../Task/Task.jsx';
+import './tasksList.css';
 
 const CompletedTasks = () => {
   const { tasks } = useContext(TodoListContext);
@@ -22,13 +23,18 @@ const CompletedTasks = () => {
       {tasks.length === 0 ? (
         <br />
       ) : (
-        <div className="completed-tasks">
-          <div className="completed-tasks__title">
-            <p>Completed</p>
+        <div id="completed-tasks-list" className="tasks-list__container">
+          <div className="tasks-list__title">
+            <h2>
+              Completed{' '}
+              <span>
+                ({completedTasks.length} / {tasks.length})
+              </span>
+            </h2>
           </div>
-          <div className="completed-tasks__tasks">
+          <div className="tasks-list__tasks">
             {completedTasks.length === 0 ? (
-              <h1>Aún no completas ninguna tarea..</h1>
+              <p>You have not completed any tasks yet...</p>
             ) : (
               completedTasks.map((task) => <Task key={task.id} task={task} />)
             )}

@@ -1,0 +1,85 @@
+.add-task-bar__form {
+  gap: 1rem;
+
+  & .form__input {
+    position: relative;
+    width: 100%;
+    height: 2.5rem;
+
+    & input {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      font-family: var(--f-family-txt);
+      font-size: 1rem;
+      width: 100%;
+      height: 2rem;
+      padding: 0 0.5rem;
+      padding-bottom: 0.2rem;
+      background-color: transparent;
+      color: var(--light-c);
+      border-bottom: 1px solid var(--light-c);
+      cursor: text;
+
+      &:focus + .placeHolder,
+      &:not([value='']) + .placeHolder {
+        display: none;
+      }
+    }
+
+    & input[id=name] + .placeHolder::after {
+      position: absolute;
+      top: -.5rem;
+      right: -.7rem;
+      content: '*';
+    }
+
+    & .placeHolder {
+      position: absolute;
+      font-family: var(--f-family-txt);
+      font-size: 1rem;
+      top: 0.8rem;
+      left: 0.5rem;
+      color: var(--light-low-c);
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+  }
+
+  & .form__btns {
+    width: 100%;
+    height: 2.5rem;
+    display: grid;
+    grid-template-columns: .3fr .7fr;
+    gap: 1rem;
+
+    & button {
+      font-weight: bold;
+      height: 100%;
+      background-color: var(--secondary-c);
+      color: var(--dark-c);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+
+      &:hover:not(:disabled) {
+        background-color: var(--secondary-low-c);
+      }
+
+      &:disabled {
+        cursor: default;
+      }
+
+      &:disabled {
+        background-color: var(--secondary-disabled-c);
+      }
+    }
+
+    & .btn__save {
+      flex-grow: 1;
+    }
+
+    & .btn__description {
+      flex-grow: 2;
+    }
+  }
+}

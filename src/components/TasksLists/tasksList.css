@@ -1,0 +1,21 @@
+.tasks-list__container {
+  position: relative;
+
+  & > * {
+    width: 100%;
+  }
+
+  & .tasks-list__title {
+    position: absolute;
+    top: -1.6rem;
+    text-align: center;
+    background-color: inherit;
+  }
+
+  & .tasks-list__tasks {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+}

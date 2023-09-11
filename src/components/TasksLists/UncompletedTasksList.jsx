@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { TodoListContext } from '../../context/TodoListContext.jsx';
 import Task from '../Task/Task.jsx';
+import './tasksList.css';
 
 const UncompletedTasks = () => {
   const { tasks } = useContext(TodoListContext);
@@ -18,13 +19,13 @@ const UncompletedTasks = () => {
   }, [tasks]);
 
   return (
-    <div className="uncompleted-tasks">
-      <div className="uncompleted-tasks__title">
-        <p>Tasks</p>
+    <div id="uncompleted-tasks-list" className="tasks-list__container">
+      <div className="tasks-list__title">
+        <h2>Tasks</h2>
       </div>
-      <div className="uncompleted-tasks__tasks">
+      <div className="tasks-list__tasks">
         {uncompletedTasks.length === 0 ? (
-          <h1>No hay tareas</h1>
+          <p>No pending tasks...</p>
         ) : (
           uncompletedTasks.map((task) => <Task key={task.id} task={task} />)
         )}

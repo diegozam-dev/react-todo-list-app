@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 import { TodoListContext } from '../../context/TodoListContext';
+import { VscChromeClose } from 'react-icons/vsc';
+import './task.css';
 
 const Task = ({ task }) => {
   const { deleteTask, checkTask } = useContext(TodoListContext);
@@ -20,15 +22,18 @@ const Task = ({ task }) => {
     <div id={task.id} className="task">
       <input
         type="checkbox"
+        className="task__check"
         checked={task.isCompleted}
         onChange={handleChange}
       />
       <div className="task__data">
         <p className="task__name">{task.name}</p>
-        <p className="task__description">{task.description}</p>
+        {task.description !== '' ? (
+          <p className="task__description">{task.description}</p>
+        ) : null}
       </div>
-      <button className="btn-delete-task" onClick={handleDelete}>
-        X
+      <button className="task__btn-delete" onClick={handleDelete}>
+        <VscChromeClose color="#eb455f" size={'1.5rem'} strokeWidth={1} />
       </button>
     </div>
   );

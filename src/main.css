@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  cursor: default;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --f-family-title: 'Open Sans', sans-serif;
+  --f-family-txt: 'Lora', serif;
+
+  --dark-c: #1f233c;
+  --dark-low-c: #1f233cc2;
+  --primary-c: #2b3467;
+  --secondary-c: #bad7e9;
+  --secondary-low-c: #bad7e9ce;
+  --secondary-disabled-c: #bad7e991;
+  --delete-c: #eb455f;
+  --delete-low-c: #eb455ec4;
+  --light-c: #ffffff;
+  --light-low-c: #ffffff8e;
+
+  --border-radius: 12px;
+}
+
+html {
+  font-size: 16px;
+
+  & body {
+    min-height: 100vh;
+    background: rgb(0, 0, 0);
+    background: -moz-linear-gradient(
+      300deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(31, 35, 60, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      300deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(31, 35, 60, 1) 100%
+    );
+    background: linear-gradient(
+      300deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(31, 35, 60, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#1f233c",GradientType=1);
+    display: grid;
+    place-items: center;
+  }
+}
+
+h1,
+h2 {
+  font-family: var(--f-family-title);
+  color: var(--light-c);
+  user-select: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p,
+button {
+  font-family: var(--f-family-txt);
+  font-size: 1rem;
+  color: var(--light-c);
+}
+
+p,
+label {
+  user-select: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+hr {
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}

@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { TodoListContext } from '../../context/TodoListContext.jsx';
+import './addTaskBar.css';
 
 const AddTaskBar = () => {
   const { saveNewTask, createTask } = useContext(TodoListContext);
@@ -20,7 +21,10 @@ const AddTaskBar = () => {
     if (inputName === '' && inputDescription === '')
       return alert('No ha agregado ninguna tarea...');
 
-    const tmpTask = createTask(inputName, inputDescription);
+    const tmpTask = createTask(
+      inputName.trimStart(),
+      inputDescription.trimStart()
+    );
 
     saveNewTask(tmpTask);
 
@@ -37,33 +41,43 @@ const AddTaskBar = () => {
   };
 
   return (
-    <form className="add-task-bar">
-      <div className="add-task-bar__inputs">
+    <form className="add-task-bar__form">
+      <div className="form__input">
         <input
+          id="name"
           className="input__name"
           type="text"
-          placeholder="Write something to do..."
           value={inputName}
+          autoComplete="off"
           onChange={handleChandeInputs}
         />
+        <label className="placeHolder">Write something to do...</label>
+      </div>
+      <div
+        className="form__input"
+        style={wantDescription ? { display: 'block' } : { display: 'none' }}
+      >
         <input
+          id="description"
           className="input__description"
           type="text"
-          placeholder="Add some description..."
           value={inputDescription}
           disabled={!wantDescription}
+          autoComplete="off"
           onChange={handleChandeInputs}
         />
+        <label className="placeHolder">Add some description....</label>
       </div>
-      <div className="add-task-bar__btns">
+      <div className="form__btns">
         <button
-          className="btn-save"
+          className="btn__save"
           disabled={inputName === ''}
           onClick={handleSave}
+          onKeyUp={handleSave}
         >
           Save
         </button>
-        <button className="btn-description" onClick={handleAddDescription}>
+        <button className="btn__description" onClick={handleAddDescription}>
           {wantDescription === true ? 'Remove description' : 'Add description'}
         </button>
       </div>
